@@ -1,7 +1,10 @@
-name: Build Android and iOSon:
+name: Build Android and iOSon
+
+on:
   push:
     branches:
-      - main:
+      - main
+jobs:
   install-and-test:
     runs-on: ubuntu-latest
     steps: 
