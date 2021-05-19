@@ -13,19 +13,16 @@ jobs:
         run: |
           npm install
 
-      - name: Install Cli
-        run: |
-          npm install -g react-native-cli
       - name: Create bundle
         run: |
-          react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+          react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
       
       - name: Clean Release
         run: |
           cd android && ./gradlew clean
       - name: Create build
         run: |
-          cd android && ./gradlew assembleRelease
+          cd android && ./gradlew assembleRelease -x bundleReleaseJsAndAssets
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
