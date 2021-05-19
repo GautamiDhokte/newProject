@@ -71,6 +71,9 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+            <Section title="This is CI/CD">
+            <ReloadInstructions />
+          </Section> 
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
