@@ -18,7 +18,3 @@ jobs:
        - name: Create bundle
         run: |
           react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res
-
-      - name: Clean gradle
-      run: | 
-      cd android && ./gradlew clean
