@@ -9,9 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - name: Install npm dependencies
+      - name: Installing node
+        uses: actions/setup-node@v1
+      - name: Install React Native CLI
         run: |
-          npm install
+          yarn global add react-native-cli
+      - name: Install yarn dependencies
+        run: |
+          yarn install
+      - name: Building bundle
+        run: |
+          yarn react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
       
